@@ -1,0 +1,31 @@
+{
+  "name": "vue-practice-prep",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "chart.js": "^2.8.0",
+    "firebase": "^5.8.5",
+    "lodash": "^4.17.11",
+    "materialize-css": "^1.0.0-rc.2",
+    "register-service-worker": "^1.5.2",
+    "vue": "^2.6.6",
+    "vue-chartjs": "^3.4.2",
+    "vue-router": "^3.0.1",
+    "vuejs-paginate": "^2.1.0",
+    "vuelidate": "^0.7.4",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.4.0",
+    "@vue/cli-plugin-pwa": "^3.4.0",
+    "@vue/cli-service": "^3.4.0",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.1.0",
+    "vue-template-compiler": "^2.5.21"
+  }
+}
