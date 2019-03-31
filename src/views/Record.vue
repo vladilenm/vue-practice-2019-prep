@@ -6,6 +6,10 @@
 
     <loader v-if="loading" />
 
+    <section v-else-if="!categories.length">
+      <p class="center">CONTENTA NET</p>
+    </section>
+
     <form class="form" v-else @submit.prevent="onSubmit">
       <div class="input-field" >
         <select ref="select" v-model="category">
@@ -94,12 +98,15 @@ export default {
   }),
   async mounted() {
     this.categories = await this.$store.dispatch('fetchCategories')
-    this.category = this.categories[0].id
+    if (this.categories.length) {
+      this.category = this.categories[0].id
+      setTimeout(() => {
+        this.select = M.FormSelect.init(this.$refs.select)
+        M.updateTextFields()
+      }, 0)
+    }
     this.loading = false
-    setTimeout(() => {
-      this.select = M.FormSelect.init(this.$refs.select)
-      M.updateTextFields()
-    }, 0)
+
   },
   computed: {
     bill() {
@@ -135,7 +142,7 @@ export default {
         this.amount = 1
         this.description = ''
       } else {
-        this.$message('Недостаточно средств на счету')
+        this.$message(`Недостаточно средств на счету (${this.amount - this.bill})`)
       }
     }
   },

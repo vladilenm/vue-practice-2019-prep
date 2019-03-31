@@ -7,6 +7,10 @@
 
     <loader v-if="loading" />
 
+    <section v-else-if="!categories.length">
+      <p class="center">CONTENTA NET</p>
+    </section>
+
     <section v-else>
       <div v-for="cat of categories" :key="cat.id">
         <p>
@@ -39,6 +43,7 @@ export default {
     this.categories = categories.map(cat => {
       const spend = records
         .filter(record => record.categoryId === cat.id)
+        .filter(record => record.type === 'outcome')
         .reduce((total, record) => {
           return total += +record.amount
         }, 0)

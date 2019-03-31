@@ -16,7 +16,7 @@
           }">
             <div class="card-content white-text">
               <p>Описание: {{record.description}}</p>
-              <p>Сумма: {{record.amount}}</p>
+              <p>Сумма: {{record.amount | currency}}</p>
               <p>Категория: {{record.category.title}}</p>
 
               <small>{{record.date | date('datetime')}}</small>

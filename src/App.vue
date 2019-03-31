@@ -9,19 +9,21 @@
 <script>
 import EmptyLayout from './layouts/Empty'
 import MainLayout from './layouts/Main'
-import firebase from 'firebase/app'
+import LoadingLayout from './layouts/Main'
 
 export default {
   computed: {
     layout() {
-      if (!firebase.auth().currentUser) {
+      if (!this.$store.dispatch('getUid')) {
         return 'empty-layout'
       }
-      return (this.$route.meta.layout || 'main') + '-layout'
+      return (this.$route.meta.layout || 'loading') + '-layout'
     }
   },
   components: {
-    EmptyLayout, MainLayout
+    EmptyLayout,
+    MainLayout,
+    LoadingLayout
   }
 }
 </script>

@@ -100,7 +100,8 @@ export default {
     }
   },
   beforeDestroy() {
-    this.select.destroy()
+    if (this.select && this.select.destroy)
+      this.select.destroy()
   }
 }
 </script>

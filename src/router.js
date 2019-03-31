@@ -23,43 +23,43 @@ const router = new Router({
     {
       path: '/',
       name: 'home',
-      meta: {auth: true},
+      meta: {auth: true, layout: 'main'},
       component: () => import('./views/Home.vue')
     },
     {
       path: '/history',
       name: 'history',
-      meta: {auth: true},
+      meta: {auth: true, layout: 'main'},
       component: () => import('./views/History.vue')
     },
     {
       path: '/record/:id',
       name: 'detail-record',
-      meta: {auth: true},
+      meta: {auth: true, layout: 'main'},
       component: () => import('./views/DetailRecord.vue')
     },
     {
       path: '/planning',
       name: 'planning',
-      meta: {auth: true},
+      meta: {auth: true, layout: 'main'},
       component: () => import('./views/Planning.vue')
     },
     {
       path: '/record',
       name: 'record',
-      meta: {auth: true},
+      meta: {auth: true, layout: 'main'},
       component: () => import('./views/Record.vue')
     },
     {
       path: '/profile',
       name: 'profile',
-      meta: {auth: true},
+      meta: {auth: true, layout: 'main'},
       component: () => import('./views/Profile.vue')
     },
     {
       path: '/categories',
       name: 'categories',
-      meta: {auth: true},
+      meta: {auth: true, layout: 'main'},
       component: () => import('./views/Categories.vue')
     },
     {

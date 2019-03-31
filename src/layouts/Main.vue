@@ -1,7 +1,7 @@
 <template>
   <div>
     <loader v-if="loading" />
-    <div  class="app-main-layout" v-else>
+    <div class="app-main-layout" v-else>
       <navbar @click="isOpen = !isOpen" />
 
       <sidebar v-model="isOpen" />
@@ -25,6 +25,7 @@
 import Navbar from '../components/app/Navbar'
 import Sidebar from '../components/app/Sidebar'
 import messages from '../messages'
+import _ from 'lodash'
 
 export default {
   data: () => ({
@@ -38,7 +39,7 @@ export default {
     }
   },
   async mounted() {
-    if (!Object.keys(this.$store.getters.info).length) {
+    if (_.isEmpty(this.$store.getters.info)) {
       await this.$store.dispatch('fetchInfo')
     }
 

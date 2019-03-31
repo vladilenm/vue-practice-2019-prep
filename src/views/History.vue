@@ -4,11 +4,15 @@
       <h3>История записей</h3>
     </div>
 
-    <div class="history-chart">
+    <div class="history-chart" :hidden="!records.length">
       <canvas ref="canvas"></canvas>
     </div>
 
     <loader v-if="loading" />
+
+    <section v-else-if="!records.length">
+      <p class="center">CONTENTA NET</p>
+    </section>
 
     <section v-else>
       <HistoryTable :records="items" />

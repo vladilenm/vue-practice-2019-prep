@@ -1,7 +1,7 @@
 <template>
   <div class="app-loader">
     <div class="preloader-wrapper active">
-      <div class="spinner-layer spinner-blue-only">
+      <div class="spinner-layer" :class="color">
         <div class="circle-clipper left">
           <div class="circle"></div>
         </div>
@@ -17,7 +17,14 @@
 </template>
 
 <script>
-  export default {}
+export default {
+  computed: {
+    color() {
+      const classes = ['spinner-red-only', 'spinner-blue-only', 'spinner-green-only']
+      return classes[Math.floor(Math.random() * 3)]
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
